@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Maintenance Card</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 950px;
+            margin: auto;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .machine-id {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .info {
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background: #eeeeee;
+        }
+
+        input[type="date"],
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+        }
+
+        textarea {
+            min-height: 50px;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-right: 8px;
+        }
+
+        .save {
+            background: #222;
+            color: white;
+        }
+
+        .new {
+            background: #ddd;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="card">
+
+        <h1>Digital Maintenance Card</h1>
+
+        <div class="machine-id">
+            Machine ID : SEW-SNL-FDM-NSNT110001
+        </div>
+
+        <p class="info">
+            Fréquence prévue : tous les 3 mois
+        </p>
+
+        <label>
+
+            <strong>Next Service :</strong><br>
+
+            <input type="date" id="nextService">
+
+        </label>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>Gamme de maintenance préventive</h2>
+
+
+        <table>
+
+            <tr>
+                <th>Ordre</th>
+                <th>Tâche</th>
+                <th>Statut</th>
+                <th>Date</th>
+                <th>Observation</th>
+            </tr>
+
+
+            <tr>
+
+                <td>1</td>
+
+                <td>
+                    CONTROLER EYE GUARD
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>2</td>
+
+                <td>
+                    CONTROLER PLAQUES ET GRIFFES
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>3</td>
+
+                <td>
+                    CONTROLER LES FILS ELECTRIQUE
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>4</td>
+
+                <td>
+                    CONTROLER PROTECTION MOTEUR
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>5</td>
+
+                <td>
+                    CONTROLER PROTEGE COURROIE
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>6</td>
+
+                <td>
+                    GRAISSAGE
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+            
+            <tr>
+
+                <td>7</td>
+
+                <td>
+                    CHANGE OIL
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+            
+            <tr>
+
+                <td>8</td>
+
+                <td>
+                    ADD OIL
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+            
+            <tr>
+
+                <td>9</td>
+
+                <td>
+                    MACHINE TABLE AND STAND
+                </td>
+
+                <td>
+                    <input type="checkbox" class="task-check">
+                    Fait
+                </td>
+
+                <td>
+                    <input type="date" class="task-date">
+                </td>
+
+                <td>
+                    <textarea class="task-observation"></textarea>
+                </td>
+
+            </tr>
+
+
+
+
+
+
+        </table>
+
+
+        <button class="save" onclick="saveMaintenance()">
+            Sauvegarder
+        </button>
+
+
+        <button class="new" onclick="newCycle()">
+            Nouveau cycle
+        </button>
+
+
+        <div id="message" class="message"></div>
+
+    </div>
+
+
+
+    <script>
+
+
+        const STORAGE_KEY =
+            "maintenance_SEW-SNL-FDM-NSNT110461";
+
+
+        function saveMaintenance() {
+
+
+            const checks =
+                document.querySelectorAll(".task-check");
+
+
+            const dates =
+                document.querySelectorAll(".task-date");
+
+
+            const observations =
+                document.querySelectorAll(".task-observation");
+
+
+            const data = {
+
+                machineId:
+                    "SEW-SNL-FDM-NSNT110461",
+
+                nextService:
+                    document.getElementById("nextService").value,
+
+                savedAt:
+                    new Date().toLocaleString("fr-FR"),
+
+                tasks: []
+
+            };
+
+
+            for (let i = 0; i < checks.length; i++) {
+
+
+                data.tasks.push({
+
+                    done:
+                        checks[i].checked,
+
+                    date:
+                        dates[i].value,
+
+                    observation:
+                        observations[i].value
+
+                });
+
+            }
+
+
+            localStorage.setItem(
+
+                STORAGE_KEY,
+
+                JSON.stringify(data)
+
+            );
+
+
+            document.getElementById("message").textContent =
+                "? Données sauvegardées avec succès.";
+
+
+        }
+
+
+
+        function loadMaintenance() {
+
+
+            const saved =
+                localStorage.getItem(STORAGE_KEY);
+
+
+            if (!saved) {
+
+                return;
+
+            }
+
+
+            const data =
+                JSON.parse(saved);
+
+
+            document.getElementById("nextService").value =
+                data.nextService || "";
+
+
+            const checks =
+                document.querySelectorAll(".task-check");
+
+
+            const dates =
+                document.querySelectorAll(".task-date");
+
+
+            const observations =
+                document.querySelectorAll(".task-observation");
+
+
+            data.tasks.forEach((task, i) => {
+
+
+                checks[i].checked =
+                    task.done;
+
+
+                dates[i].value =
+                    task.date || "";
+
+
+                observations[i].value =
+                    task.observation || "";
+
+
+            });
+
+
+        }
+
+
+
+        function newCycle() {
+
+
+            const confirmation =
+                confirm(
+                    "Créer un nouveau cycle et effacer les données actuelles ?"
+                );
+
+
+            if (!confirmation) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(STORAGE_KEY);
+
+
+            document.getElementById("nextService").value = "";
+
+
+            document.querySelectorAll(".task-check").forEach(
+                item => item.checked = false
+            );
+
+
+            document.querySelectorAll(".task-date").forEach(
+                item => item.value = ""
+            );
+
+
+            document.querySelectorAll(".task-observation").forEach(
+                item => item.value = ""
+            );
+
+
+            document.getElementById("message").textContent =
+                "Nouveau cycle créé.";
+
+
+        }
+
+
+
+        loadMaintenance();
+
+
+    </script>
+
+
+</body>
+
+</html>
