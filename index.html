@@ -1,459 +1,220 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Digital Maintenance Card</title>
-
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 950px;
-            margin: auto;
-            padding: 20px;
-            background: #f4f4f4;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-        }
-
-        h1 {
-            margin-top: 0;
-        }
-
-        .machine-id {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .info {
-            color: #666;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-        }
-
-        th {
-            background: #eeeeee;
-        }
-
-        input[type="date"],
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 8px;
-        }
-
-        textarea {
-            min-height: 50px;
-        }
-
-        button {
-            padding: 10px 18px;
-            border: none;
-            border-radius: 7px;
-            cursor: pointer;
-            margin-top: 15px;
-            margin-right: 8px;
-        }
-
-        .save {
-            background: #222;
-            color: white;
-        }
-
-        .new {
-            background: #ddd;
-        }
-
-        .message {
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Maintenance Card</title>
+<style>
+:root{font-family:Arial,sans-serif;color:#20252b;background:#f3f5f7}
+*{box-sizing:border-box}
+body{max-width:1100px;margin:0 auto;padding:16px}
+.card{background:#fff;padding:20px;margin:0 0 16px;border-radius:12px;box-shadow:0 2px 9px #00000012}
+h1{font-size:25px;margin:0 0 8px}
+h2{font-size:19px;margin:0 0 14px}
+.meta{color:#606a75;font-size:14px;line-height:1.6}
+.machine-id{font-size:18px;font-weight:700;overflow-wrap:anywhere}
+.pill{display:inline-block;background:#eaf2ff;color:#174a87;border-radius:20px;padding:5px 10px;font-size:12px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+label{font-size:14px;font-weight:600}
+input[type=date],textarea{width:100%;padding:9px;border:1px solid #ccd2d8;border-radius:6px;margin-top:6px;font:inherit}
+textarea{min-height:58px;resize:vertical}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:780px;font-size:13px}
+th,td{border:1px solid #dce1e5;padding:9px;text-align:left;vertical-align:top}
+th{background:#eef1f4}
+td input[type=date]{min-width:130px}
+.task-name{font-weight:700}
+button{border:0;border-radius:7px;padding:11px 16px;margin:14px 8px 0 0;cursor:pointer;font-weight:700}
+.primary{background:#20252b;color:white}
+.secondary{background:#e7eaee;color:#20252b}
+.notice{padding:11px 13px;border-radius:8px;background:#fff5dc;color:#73520a;font-size:13px;line-height:1.5;margin-top:12px}
+.message{font-weight:700;margin-top:12px;color:#17633a}
+.error{background:#ffe9e9;color:#8b2020;padding:12px;border-radius:8px}
+.empty{padding:20px;text-align:center;color:#667}
+@media(max-width:600px){body{padding:9px}.card{padding:14px}h1{font-size:21px}}
+</style>
 </head>
-
-
 <body>
-
-
-    <div class="card">
-
-        <h1>Digital Maintenance Card</h1>
-
-        <div class="machine-id">
-            Machine ID : SEW-SNL-FDM-NSNT110461
-        </div>
-
-        <p class="info">
-            Fr�quence pr�vue : tous les 2 mois
-        </p>
-
-        <label>
-
-            <strong>Next Service :</strong><br>
-
-            <input type="date" id="nextService">
-
-        </label>
-
+<section class="card">
+  <h1>Digital Maintenance Card</h1>
+  <div id="loading" class="meta">Chargement des données...</div>
+  <div id="machineInfo" hidden>
+    <div class="machine-id" id="machineId"></div>
+    <div class="meta" id="machineDetails"></div>
+    <div class="grid">
+      <label>Prochain entretien prévu
+        <input type="date" id="nextService">
+      </label>
     </div>
-
-
-
-    <div class="card">
-
-        <h2>Gamme de maintenance pr�ventive</h2>
-
-
-        <table>
-
-            <tr>
-                <th>Ordre</th>
-                <th>T�che</th>
-                <th>Statut</th>
-                <th>Date</th>
-                <th>Observation</th>
-            </tr>
-
-
-            <tr>
-
-                <td>1</td>
-
-                <td>
-                    CONTROLER EYE GUARD
-                </td>
-
-                <td>
-                    <input type="checkbox" class="task-check">
-                    Fait
-                </td>
-
-                <td>
-                    <input type="date" class="task-date">
-                </td>
-
-                <td>
-                    <textarea class="task-observation"></textarea>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>2</td>
-
-                <td>
-                    CONTROLER PLAQUES ET GRIFFES
-                </td>
-
-                <td>
-                    <input type="checkbox" class="task-check">
-                    Fait
-                </td>
-
-                <td>
-                    <input type="date" class="task-date">
-                </td>
-
-                <td>
-                    <textarea class="task-observation"></textarea>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>3</td>
-
-                <td>
-                    CONTROLER LES FILS ELECTRIQUE
-                </td>
-
-                <td>
-                    <input type="checkbox" class="task-check">
-                    Fait
-                </td>
-
-                <td>
-                    <input type="date" class="task-date">
-                </td>
-
-                <td>
-                    <textarea class="task-observation"></textarea>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>4</td>
-
-                <td>
-                    CONTROLER PROTECTION MOTEUR
-                </td>
-
-                <td>
-                    <input type="checkbox" class="task-check">
-                    Fait
-                </td>
-
-                <td>
-                    <input type="date" class="task-date">
-                </td>
-
-                <td>
-                    <textarea class="task-observation"></textarea>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>5</td>
-
-                <td>
-                    CONTROLER PROTEGE COURROIE
-                </td>
-
-                <td>
-                    <input type="checkbox" class="task-check">
-                    Fait
-                </td>
-
-                <td>
-                    <input type="date" class="task-date">
-                </td>
-
-                <td>
-                    <textarea class="task-observation"></textarea>
-                </td>
-
-            </tr>
-
-        </table>
-
-
-        <button class="save" onclick="saveMaintenance()">
-            Sauvegarder
-        </button>
-
-
-        <button class="new" onclick="newCycle()">
-            Nouveau cycle
-        </button>
-
-
-        <div id="message" class="message"></div>
-
-    </div>
-
-
-
-    <script>
-
-
-        const STORAGE_KEY =
-            "maintenance_SEW-SNL-FDM-NSNT110461";
-
-
-        function saveMaintenance() {
-
-
-            const checks =
-                document.querySelectorAll(".task-check");
-
-
-            const dates =
-                document.querySelectorAll(".task-date");
-
-
-            const observations =
-                document.querySelectorAll(".task-observation");
-
-
-            const data = {
-
-                machineId:
-                    "SEW-SNL-FDM-NSNT110461",
-
-                nextService:
-                    document.getElementById("nextService").value,
-
-                savedAt:
-                    new Date().toLocaleString("fr-FR"),
-
-                tasks: []
-
-            };
-
-
-            for (let i = 0; i < checks.length; i++) {
-
-
-                data.tasks.push({
-
-                    done:
-                        checks[i].checked,
-
-                    date:
-                        dates[i].value,
-
-                    observation:
-                        observations[i].value
-
-                });
-
-            }
-
-
-            localStorage.setItem(
-
-                STORAGE_KEY,
-
-                JSON.stringify(data)
-
-            );
-
-
-            document.getElementById("message").textContent =
-                "? Donn�es sauvegard�es avec succ�s.";
-
-
-        }
-
-
-
-        function loadMaintenance() {
-
-
-            const saved =
-                localStorage.getItem(STORAGE_KEY);
-
-
-            if (!saved) {
-
-                return;
-
-            }
-
-
-            const data =
-                JSON.parse(saved);
-
-
-            document.getElementById("nextService").value =
-                data.nextService || "";
-
-
-            const checks =
-                document.querySelectorAll(".task-check");
-
-
-            const dates =
-                document.querySelectorAll(".task-date");
-
-
-            const observations =
-                document.querySelectorAll(".task-observation");
-
-
-            data.tasks.forEach((task, i) => {
-
-
-                checks[i].checked =
-                    task.done;
-
-
-                dates[i].value =
-                    task.date || "";
-
-
-                observations[i].value =
-                    task.observation || "";
-
-
-            });
-
-
-        }
-
-
-
-        function newCycle() {
-
-
-            const confirmation =
-                confirm(
-                    "Cr�er un nouveau cycle et effacer les donn�es actuelles ?"
-                );
-
-
-            if (!confirmation) {
-
-                return;
-
-            }
-
-
-            localStorage.removeItem(STORAGE_KEY);
-
-
-            document.getElementById("nextService").value = "";
-
-
-            document.querySelectorAll(".task-check").forEach(
-                item => item.checked = false
-            );
-
-
-            document.querySelectorAll(".task-date").forEach(
-                item => item.value = ""
-            );
-
-
-            document.querySelectorAll(".task-observation").forEach(
-                item => item.value = ""
-            );
-
-
-            document.getElementById("message").textContent =
-                "Nouveau cycle cr��.";
-
-
-        }
-
-
-
-        loadMaintenance();
-
-
-    </script>
-
-
+    <p class="meta" id="gammeInfo"></p>
+  </div>
+</section>
+
+<section class="card" id="tasksCard" hidden>
+  <h2>Gamme de maintenance préventive</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th>Ordre</th><th>Tâche</th><th>Type</th><th>Action / Critère</th>
+        <th>Statut</th><th>Date</th><th>Observation</th>
+      </tr></thead>
+      <tbody id="taskRows"></tbody>
+    </table>
+  </div>
+  <button class="primary" id="saveBtn">Sauvegarder</button>
+  <button class="secondary" id="newBtn">Nouveau cycle</button>
+  <div id="message" class="message" role="status"></div>
+  <div class="notice">
+    Version de test : les données sauvegardées sont conservées uniquement dans le navigateur
+    et sur l'appareil utilisé. Elles ne sont pas encore partagées entre plusieurs téléphones ou ordinateurs.
+  </div>
+</section>
+<script>
+let appData = null;
+let currentMachine = null;
+let currentTasks = [];
+const params = new URLSearchParams(window.location.search);
+const requestedMachineId = (params.get("machine") || "").trim();
+
+function el(id){ return document.getElementById(id); }
+function escapeText(value){ return value == null ? "" : String(value); }
+function storageKey(){ return "dmc_test_" + currentMachine.Machine_ID; }
+
+function renderError(message){
+  el("loading").innerHTML = "";
+  const box = document.createElement("div");
+  box.className = "error";
+  box.textContent = message;
+  el("loading").appendChild(box);
+}
+
+function renderTasks(tasks){
+  const tbody = el("taskRows");
+  tbody.innerHTML = "";
+  tasks.forEach((task, index) => {
+    const tr = document.createElement("tr");
+    const values = [task.Ordre, task.Tache, task.Type_Tache, task.Action_Critere];
+    values.forEach((value, i) => {
+      const td = document.createElement("td");
+      td.textContent = escapeText(value);
+      if(i === 1) td.className = "task-name";
+      tr.appendChild(td);
+    });
+
+    const status = document.createElement("td");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "task-check";
+    checkbox.setAttribute("aria-label", "Tâche terminée " + task.Ordre);
+    status.appendChild(checkbox);
+    status.append(" Fait");
+    tr.appendChild(status);
+
+    const dateCell = document.createElement("td");
+    const date = document.createElement("input");
+    date.type = "date";
+    date.className = "task-date";
+    dateCell.appendChild(date);
+    tr.appendChild(dateCell);
+
+    const obsCell = document.createElement("td");
+    const obs = document.createElement("textarea");
+    obs.className = "task-observation";
+    obsCell.appendChild(obs);
+    tr.appendChild(obsCell);
+
+    tr.dataset.taskIndex = index;
+    tbody.appendChild(tr);
+  });
+}
+
+function saveMaintenance(){
+  const rows = [...document.querySelectorAll("#taskRows tr")];
+  const data = {
+    machineId: currentMachine.Machine_ID,
+    nextService: el("nextService").value,
+    savedAt: new Date().toISOString(),
+    tasks: rows.map(row => ({
+      done: row.querySelector(".task-check").checked,
+      date: row.querySelector(".task-date").value,
+      observation: row.querySelector(".task-observation").value
+    }))
+  };
+  localStorage.setItem(storageKey(), JSON.stringify(data));
+  el("message").textContent = "Données sauvegardées sur cet appareil.";
+}
+
+function loadMaintenance(){
+  const saved = localStorage.getItem(storageKey());
+  if(!saved) return;
+  try{
+    const data = JSON.parse(saved);
+    el("nextService").value = data.nextService || "";
+    const rows = [...document.querySelectorAll("#taskRows tr")];
+    (data.tasks || []).forEach((task, i) => {
+      if(!rows[i]) return;
+      rows[i].querySelector(".task-check").checked = !!task.done;
+      rows[i].querySelector(".task-date").value = task.date || "";
+      rows[i].querySelector(".task-observation").value = task.observation || "";
+    });
+    el("message").textContent = "Dernières données locales chargées.";
+  }catch(e){
+    el("message").textContent = "Les anciennes données locales n'ont pas pu être lues.";
+  }
+}
+
+function newCycle(){
+  if(!confirm("Créer un nouveau cycle et effacer les données enregistrées pour cette machine sur cet appareil ?")) return;
+  localStorage.removeItem(storageKey());
+  el("nextService").value = "";
+  document.querySelectorAll(".task-check").forEach(x => x.checked = false);
+  document.querySelectorAll(".task-date").forEach(x => x.value = "");
+  document.querySelectorAll(".task-observation").forEach(x => x.value = "");
+  el("message").textContent = "Nouveau cycle prêt. Les anciennes données locales ont été effacées.";
+}
+
+async function init(){
+  if(!requestedMachineId){
+    renderError("Machine non identifiée. Le QR Code doit contenir le paramètre ?machine=Machine_ID.");
+    return;
+  }
+  try{
+    const response = await fetch("./data.json", {cache:"no-store"});
+    if(!response.ok) throw new Error("Impossible de charger data.json (" + response.status + ").");
+    appData = await response.json();
+    currentMachine = appData.machines.find(m => m.Machine_ID === requestedMachineId);
+    if(!currentMachine){
+      renderError("Machine introuvable : " + requestedMachineId);
+      return;
+    }
+    const gamme = appData.gammes.find(g => g.Gamme_ID === currentMachine.Gamme_ID);
+    currentTasks = appData.tasks[currentMachine.Gamme_ID] || [];
+    if(!gamme || !currentTasks.length){
+      renderError("Gamme ou tâches introuvables pour " + currentMachine.Machine_ID + ".");
+      return;
+    }
+
+    el("loading").textContent = "";
+    el("machineInfo").hidden = false;
+    el("tasksCard").hidden = false;
+    el("machineId").textContent = "Machine ID : " + currentMachine.Machine_ID;
+    el("machineDetails").textContent =
+      "Marque : " + escapeText(currentMachine.Marque) +
+      " | Modèle : " + escapeText(currentMachine.Modele) +
+      " | Site : " + escapeText(currentMachine.Site_Usine) +
+      " | Statut : " + escapeText(currentMachine.Statut);
+    el("gammeInfo").textContent =
+      "Gamme : " + gamme.Gamme_ID + " – " + gamme.Nom_Gamme +
+      " | Fréquence prévue : tous les " + currentMachine.Frequence_Mois + " mois";
+    renderTasks(currentTasks);
+    loadMaintenance();
+  }catch(error){
+    renderError(error.message + " Vérifiez que index.html et data.json sont dans le même dossier GitHub Pages.");
+  }
+}
+el("saveBtn").addEventListener("click", saveMaintenance);
+el("newBtn").addEventListener("click", newCycle);
+init();
+</script>
 </body>
-
 </html>
