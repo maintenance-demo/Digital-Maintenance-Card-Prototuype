@@ -37,12 +37,12 @@ button{border:0;border-radius:7px;padding:11px 16px;margin:14px 8px 0 0;cursor:p
 <body>
 <section class="card">
   <h1>Digital Maintenance Card</h1>
-  <div id="loading" class="meta">Chargement des données...</div>
+  <div id="loading" class="meta">Chargement des donnÃ©es...</div>
   <div id="machineInfo" hidden>
     <div class="machine-id" id="machineId"></div>
     <div class="meta" id="machineDetails"></div>
     <div class="grid">
-      <label>Prochain entretien prévu
+      <label>Prochain entretien prÃ©vu
         <input type="date" id="nextService">
       </label>
     </div>
@@ -51,11 +51,11 @@ button{border:0;border-radius:7px;padding:11px 16px;margin:14px 8px 0 0;cursor:p
 </section>
 
 <section class="card" id="tasksCard" hidden>
-  <h2>Gamme de maintenance préventive</h2>
+  <h2>Gamme de maintenance prÃ©ventive</h2>
   <div class="table-wrap">
     <table>
       <thead><tr>
-        <th>Ordre</th><th>Tâche</th><th>Type</th><th>Action / Critère</th>
+        <th>Ordre</th><th>TÃ¢che</th><th>Type</th><th>Action / CritÃ¨re</th>
         <th>Statut</th><th>Date</th><th>Observation</th>
       </tr></thead>
       <tbody id="taskRows"></tbody>
@@ -65,10 +65,16 @@ button{border:0;border-radius:7px;padding:11px 16px;margin:14px 8px 0 0;cursor:p
   <button class="secondary" id="newBtn">Nouveau cycle</button>
   <div id="message" class="message" role="status"></div>
   <div class="notice">
-    Version de test : les données sauvegardées sont conservées uniquement dans le navigateur
-    et sur l'appareil utilisé. Elles ne sont pas encore partagées entre plusieurs téléphones ou ordinateurs.
+    Version de test : les donnÃ©es sauvegardÃ©es sont conservÃ©es uniquement dans le navigateur
+    et sur l'appareil utilisÃ©. Elles ne sont pas encore partagÃ©es entre plusieurs tÃ©lÃ©phones ou ordinateurs.
   </div>
 </section>
+
+<section class="card" id="historyCard">
+  <h2>Historique des maintenances</h2>
+  <div id="historyList" class="meta">Aucun ancien cycle enregistrÃ©.</div>
+</section>
+
 <script>
 let appData = null;
 let currentMachine = null;
@@ -105,7 +111,7 @@ function renderTasks(tasks){
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.className = "task-check";
-    checkbox.setAttribute("aria-label", "Tâche terminée " + task.Ordre);
+    checkbox.setAttribute("aria-label", "TÃ¢che terminÃ©e " + task.Ordre);
     status.appendChild(checkbox);
     status.append(" Fait");
     tr.appendChild(status);
@@ -128,9 +134,13 @@ function renderTasks(tasks){
   });
 }
 
-function saveMaintenance(){
+function historyStorageKey(){
+  return "dmc_history_" + currentMachine.Machine_ID;
+}
+
+function collectMaintenance(){
   const rows = [...document.querySelectorAll("#taskRows tr")];
-  const data = {
+  return {
     machineId: currentMachine.Machine_ID,
     nextService: el("nextService").value,
     savedAt: new Date().toISOString(),
@@ -140,8 +150,99 @@ function saveMaintenance(){
       observation: row.querySelector(".task-observation").value
     }))
   };
+}
+
+function hasMaintenanceData(data){
+  if(!data) return false;
+  return !!data.nextService || (data.tasks || []).some(task =>
+    !!task.done || !!task.date || !!(task.observation || "").trim()
+  );
+}
+
+function getHistory(){
+  try{
+    return JSON.parse(localStorage.getItem(historyStorageKey()) || "[]");
+  }catch(e){
+    return [];
+  }
+}
+
+function renderHistory(){
+  const container = el("historyList");
+  container.textContent = "";
+  const history = getHistory();
+
+  if(!history.length){
+    container.textContent = "Aucun ancien cycle enregistrÃ© pour cette machine.";
+    return;
+  }
+
+  history.slice().reverse().forEach((cycle, reverseIndex) => {
+    const cycleNumber = history.length - reverseIndex;
+    const details = document.createElement("details");
+    details.style.marginTop = "12px";
+    details.style.padding = "12px";
+    details.style.border = "1px solid #dce1e5";
+    details.style.borderRadius = "8px";
+
+    const summary = document.createElement("summary");
+    summary.style.cursor = "pointer";
+    summary.style.fontWeight = "700";
+    const archivedDate = cycle.archivedAt ? new Date(cycle.archivedAt) : null;
+    const dateLabel = archivedDate && !isNaN(archivedDate)
+      ? archivedDate.toLocaleString("fr-FR")
+      : "Date non disponible";
+    summary.textContent = "Cycle " + cycleNumber + " â€” ArchivÃ© le " + dateLabel;
+    details.appendChild(summary);
+
+    const next = document.createElement("p");
+    next.className = "meta";
+    next.textContent = "Prochain entretien prÃ©vu : " + (cycle.nextService || "Non renseignÃ©");
+    details.appendChild(next);
+
+    const tableWrap = document.createElement("div");
+    tableWrap.className = "table-wrap";
+    const table = document.createElement("table");
+    table.style.minWidth = "650px";
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    ["Ordre", "TÃ¢che", "Statut", "Date", "Observation"].forEach(label => {
+      const th = document.createElement("th");
+      th.textContent = label;
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+    (cycle.tasks || []).forEach((task, index) => {
+      const tr = document.createElement("tr");
+      const sourceTask = currentTasks[index] || {};
+      const values = [
+        sourceTask.Ordre ?? (index + 1),
+        sourceTask.Tache || "TÃ¢che " + (index + 1),
+        task.done ? "Fait" : "Non fait",
+        task.date || "",
+        task.observation || ""
+      ];
+      values.forEach(value => {
+        const td = document.createElement("td");
+        td.textContent = escapeText(value);
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    tableWrap.appendChild(table);
+    details.appendChild(tableWrap);
+    container.appendChild(details);
+  });
+}
+
+function saveMaintenance(){
+  const data = collectMaintenance();
   localStorage.setItem(storageKey(), JSON.stringify(data));
-  el("message").textContent = "Données sauvegardées sur cet appareil.";
+  el("message").textContent = "DonnÃ©es sauvegardÃ©es sur cet appareil.";
 }
 
 function loadMaintenance(){
@@ -157,25 +258,40 @@ function loadMaintenance(){
       rows[i].querySelector(".task-date").value = task.date || "";
       rows[i].querySelector(".task-observation").value = task.observation || "";
     });
-    el("message").textContent = "Dernières données locales chargées.";
+    el("message").textContent = "DerniÃ¨res donnÃ©es locales chargÃ©es.";
   }catch(e){
-    el("message").textContent = "Les anciennes données locales n'ont pas pu être lues.";
+    el("message").textContent = "Les anciennes donnÃ©es locales n'ont pas pu Ãªtre lues.";
   }
 }
 
 function newCycle(){
-  if(!confirm("Créer un nouveau cycle et effacer les données enregistrées pour cette machine sur cet appareil ?")) return;
+  if(!confirm("Archiver le cycle actuel dans l'historique, puis commencer un nouveau cycle ?")) return;
+
+  const currentData = collectMaintenance();
+  const previouslySaved = localStorage.getItem(storageKey());
+
+  // Archive the current form (including unsaved edits) before clearing it.
+  if(previouslySaved || hasMaintenanceData(currentData)){
+    const history = getHistory();
+    history.push({
+      ...currentData,
+      archivedAt: new Date().toISOString()
+    });
+    localStorage.setItem(historyStorageKey(), JSON.stringify(history));
+    renderHistory();
+  }
+
   localStorage.removeItem(storageKey());
   el("nextService").value = "";
   document.querySelectorAll(".task-check").forEach(x => x.checked = false);
   document.querySelectorAll(".task-date").forEach(x => x.value = "");
   document.querySelectorAll(".task-observation").forEach(x => x.value = "");
-  el("message").textContent = "Nouveau cycle prêt. Les anciennes données locales ont été effacées.";
+  el("message").textContent = "Ancien cycle archivÃ©. Nouveau cycle prÃªt.";
 }
 
 async function init(){
   if(!requestedMachineId){
-    renderError("Machine non identifiée. Le QR Code doit contenir le paramètre ?machine=Machine_ID.");
+    renderError("Machine non identifiÃ©e. Le QR Code doit contenir le paramÃ¨tre ?machine=Machine_ID.");
     return;
   }
   try{
@@ -190,7 +306,7 @@ async function init(){
     const gamme = appData.gammes.find(g => g.Gamme_ID === currentMachine.Gamme_ID);
     currentTasks = appData.tasks[currentMachine.Gamme_ID] || [];
     if(!gamme || !currentTasks.length){
-      renderError("Gamme ou tâches introuvables pour " + currentMachine.Machine_ID + ".");
+      renderError("Gamme ou tÃ¢ches introuvables pour " + currentMachine.Machine_ID + ".");
       return;
     }
 
@@ -200,16 +316,17 @@ async function init(){
     el("machineId").textContent = "Machine ID : " + currentMachine.Machine_ID;
     el("machineDetails").textContent =
       "Marque : " + escapeText(currentMachine.Marque) +
-      " | Modèle : " + escapeText(currentMachine.Modele) +
+      " | ModÃ¨le : " + escapeText(currentMachine.Modele) +
       " | Site : " + escapeText(currentMachine.Site_Usine) +
       " | Statut : " + escapeText(currentMachine.Statut);
     el("gammeInfo").textContent =
-      "Gamme : " + gamme.Gamme_ID + " – " + gamme.Nom_Gamme +
-      " | Fréquence prévue : tous les " + currentMachine.Frequence_Mois + " mois";
+      "Gamme : " + gamme.Gamme_ID + " â€“ " + gamme.Nom_Gamme +
+      " | FrÃ©quence prÃ©vue : tous les " + currentMachine.Frequence_Mois + " mois";
     renderTasks(currentTasks);
     loadMaintenance();
+    renderHistory();
   }catch(error){
-    renderError(error.message + " Vérifiez que index.html et data.json sont dans le même dossier GitHub Pages.");
+    renderError(error.message + " VÃ©rifiez que index.html et data.json sont dans le mÃªme dossier GitHub Pages.");
   }
 }
 el("saveBtn").addEventListener("click", saveMaintenance);
