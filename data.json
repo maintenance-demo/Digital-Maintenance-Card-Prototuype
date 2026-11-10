@@ -3,7 +3,7 @@
     {
       "Machine_ID": "SEW-SNL-FDM-NSNT110461",
       "Marque": "FDM",
-      "Modele": "SINGLE N LOCKSTITCH",
+      "Modele": "SINGLE NEEDLE LOCKSTITCH",
       "Site_Usine": "SG",
       "Gamme_ID": "GAM-001",
       "Frequence_Mois": 3,
@@ -13,7 +13,7 @@
     {
       "Machine_ID": "SEW-SNL-FDM-NSNT140803",
       "Marque": "FDM",
-      "Modele": "SINGLE N LOCKSTITCH",
+      "Modele": "SINGLE NEEDLE LOCKSTITCH",
       "Site_Usine": "SG",
       "Gamme_ID": "GAM-001",
       "Frequence_Mois": 3,
@@ -23,7 +23,7 @@
     {
       "Machine_ID": "SEW-SNL-FDM-NSNT140786",
       "Marque": "FDM",
-      "Modele": "SINGLE N LOCKSTITCH",
+      "Modele": "SINGLE NEEDLE LOCKSTITCH",
       "Site_Usine": "SG",
       "Gamme_ID": "GAM-001",
       "Frequence_Mois": 3,
@@ -62,7 +62,7 @@
     },
     {
       "Machine_ID": "SEW-BTH-JUK-NBHM220068",
-      "Marque": "JHKI",
+      "Marque": "JUKI",
       "Modele": "BUTTON HOLE",
       "Site_Usine": "SG",
       "Gamme_ID": "GAM-003",
@@ -75,21 +75,21 @@
     {
       "Gamme_ID": "GAM-001",
       "Nom_Gamme": "Gamme test – SEW-SNL-FDM-NSNT110461",
-      "Description": "Gamme préventive de test comportant 9 contrôles.",
+      "Description": "Gamme de maintenance préventive de test comportant 9 contrôles.",
       "Version": "V1",
       "Statut": "Actif"
     },
     {
       "Gamme_ID": "GAM-002",
       "Nom_Gamme": "Gamme test – SEW-OVL-JUK-NO6T120122",
-      "Description": "Gamme préventive de test comportant 7 contrôles.",
+      "Description": "Gamme de maintenance préventive de test comportant 7 contrôles.",
       "Version": "V1",
       "Statut": "Actif"
     },
     {
       "Gamme_ID": "GAM-003",
       "Nom_Gamme": "Gamme test – SEW-BTK-BRO-NBMA010007",
-      "Description": "Gamme préventive de test comportant 5 contrôles.",
+      "Description": "Gamme de maintenance préventive de test comportant 5 contrôles.",
       "Version": "V1",
       "Statut": "Actif"
     }
@@ -98,133 +98,133 @@
     "GAM-001": [
       {
         "Ordre": 1,
-        "Tache": "CONTROLER EYE GUARD",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler le protège-aiguille (Eye Guard)",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 2,
-        "Tache": "CONTROLER FINGER GUARD",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler le protège-doigts (Finger Guard)",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 3,
-        "Tache": "CONTROLER PLAQUES ET GRIFFES",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler la plaque à aiguille et les griffes d’entraînement",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 4,
-        "Tache": "CONTROLER LES FILS ELECTRIQUE",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler les fils électriques",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 5,
-        "Tache": "CONTROLER PROTECTION MOTEUR",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler la protection du moteur",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 6,
-        "Tache": "CONTROLER PROTEGE COURROIE",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler le protège-courroie",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 7,
-        "Tache": "CONTROLER L'HUILE",
-        "Type_Tache": "Controle",
-        "Action_Critere": "Verifier le bon etat, ajouter ou changer"
+        "Tache": "Contrôler l’huile",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier le niveau et l’état de l’huile ; compléter ou remplacer si nécessaire."
       },
       {
         "Ordre": 8,
-        "Tache": "VERIFICATION DU SERRAGE DES VIS",
-        "Type_Tache": "Verification",
-        "Action_Critere": "Verifier et serrer tous les vis"
+        "Tache": "Vérifier le serrage des vis",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Vérifier et resserrer toutes les vis."
       },
       {
         "Ordre": 9,
-        "Tache": "CLEAN MACHINE",
+        "Tache": "Nettoyer la machine",
         "Type_Tache": "Nettoyage",
-        "Action_Critere": "nettoyer à l'intérieur et à l'extérieur"
+        "Action_Critere": "Nettoyer l’intérieur et l’extérieur de la machine."
       }
     ],
     "GAM-002": [
       {
         "Ordre": 1,
-        "Tache": "CONTROLER EYE GUARD",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler le protège-aiguille (Eye Guard)",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 2,
-        "Tache": "CONTROLER LES FILS ELECTRIQUE",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler les fils électriques",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 3,
-        "Tache": "CONTROLER PROTECTION MOTEUR",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler la protection du moteur",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 4,
-        "Tache": "CONTROLER PROTEGE COURROIE",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler le protège-courroie",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 5,
-        "Tache": "GREASS UP",
+        "Tache": "Graisser les points prévus",
         "Type_Tache": "Graissage",
-        "Action_Critere": "Appliquer une graisse"
+        "Action_Critere": "Appliquer la graisse adaptée aux points de graissage prévus."
       },
       {
         "Ordre": 6,
-        "Tache": "VERIFICATION DU SERRAGE DES VIS",
-        "Type_Tache": "Verification",
-        "Action_Critere": "Verifier et serrer tous les vis"
+        "Tache": "Vérifier le serrage des vis",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Vérifier et resserrer toutes les vis."
       },
       {
         "Ordre": 7,
-        "Tache": "CLEAN MACHINE",
+        "Tache": "Nettoyer la machine",
         "Type_Tache": "Nettoyage",
-        "Action_Critere": "Nettoyer à l'intérieur et à l'extérieur"
+        "Action_Critere": "Nettoyer l’intérieur et l’extérieur de la machine."
       }
     ],
     "GAM-003": [
       {
         "Ordre": 1,
-        "Tache": "CONTROLER EYE GUARD",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler le protège-aiguille (Eye Guard)",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 2,
-        "Tache": "CONTROLER LES FILS ELECTRIQUE",
-        "Type_Tache": "Controle",
+        "Tache": "Contrôler les fils électriques",
+        "Type_Tache": "Contrôle",
         "Action_Critere": "Vérifier la présence, la fixation et le bon état"
       },
       {
         "Ordre": 3,
-        "Tache": "GREASS UP",
+        "Tache": "Graisser les points prévus",
         "Type_Tache": "Graissage",
-        "Action_Critere": "Appliquer une graisse"
+        "Action_Critere": "Appliquer la graisse adaptée aux points de graissage prévus."
       },
       {
         "Ordre": 4,
-        "Tache": "CLEAN MACHINE",
+        "Tache": "Nettoyer la machine",
         "Type_Tache": "Nettoyage",
-        "Action_Critere": "Nettoyer à l'intérieur et à l'extérieur"
+        "Action_Critere": "Nettoyer l’intérieur et l’extérieur de la machine."
       },
       {
         "Ordre": 5,
-        "Tache": "VERIFICATION DU SERRAGE DES VIS",
-        "Type_Tache": "Verification",
-        "Action_Critere": "Verifier et serrer tous les vis"
+        "Tache": "Vérifier le serrage des vis",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Vérifier et resserrer toutes les vis."
       }
     ]
   }
