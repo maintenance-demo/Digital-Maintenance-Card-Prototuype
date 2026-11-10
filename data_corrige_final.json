@@ -1,0 +1,231 @@
+{
+  "machines": [
+    {
+      "Machine_ID": "SEW-SNL-FDM-NSNT110461",
+      "Marque": "FDM",
+      "Modele": "SINGLE NEEDLE LOCKSTITCH",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-001",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": "Machine test initiale"
+    },
+    {
+      "Machine_ID": "SEW-SNL-FDM-NSNT140803",
+      "Marque": "FDM",
+      "Modele": "SINGLE NEEDLE LOCKSTITCH",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-001",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-SNL-FDM-NSNT140786",
+      "Marque": "FDM",
+      "Modele": "SINGLE NEEDLE LOCKSTITCH",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-001",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-OVL-JUK-NO6T120122",
+      "Marque": "JUKI",
+      "Modele": "OVERLOCK",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-002",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-OVL-JAC-NO5T160074",
+      "Marque": "JACK",
+      "Modele": "OVERLOCK",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-002",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-BTK-BRO-NBMA010007",
+      "Marque": "BROTHER",
+      "Modele": "BARTACK",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-003",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-BTH-JUK-NBHM220068",
+      "Marque": "JUKI",
+      "Modele": "BUTTON HOLE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-003",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    }
+  ],
+  "gammes": [
+    {
+      "Gamme_ID": "GAM-001",
+      "Nom_Gamme": "Gamme test – SEW-SNL-FDM-NSNT110461",
+      "Description": "Gamme de maintenance préventive de test comportant 9 contrôles.",
+      "Version": "V1",
+      "Statut": "Actif"
+    },
+    {
+      "Gamme_ID": "GAM-002",
+      "Nom_Gamme": "Gamme test – SEW-OVL-JUK-NO6T120122",
+      "Description": "Gamme de maintenance préventive de test comportant 7 contrôles.",
+      "Version": "V1",
+      "Statut": "Actif"
+    },
+    {
+      "Gamme_ID": "GAM-003",
+      "Nom_Gamme": "Gamme test – SEW-BTK-BRO-NBMA010007",
+      "Description": "Gamme de maintenance préventive de test comportant 5 contrôles.",
+      "Version": "V1",
+      "Statut": "Actif"
+    }
+  ],
+  "tasks": {
+    "GAM-001": [
+      {
+        "Ordre": 1,
+        "Tache": "Contrôler le protège-aiguille (Eye Guard)",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 2,
+        "Tache": "Contrôler le protège-doigts (Finger Guard)",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 3,
+        "Tache": "Contrôler la plaque à aiguille et les griffes d’entraînement",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 4,
+        "Tache": "Contrôler les fils électriques",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 5,
+        "Tache": "Contrôler la protection du moteur",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 6,
+        "Tache": "Contrôler le protège-courroie",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 7,
+        "Tache": "Contrôler l’huile",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier le niveau et l’état de l’huile ; compléter ou remplacer si nécessaire."
+      },
+      {
+        "Ordre": 8,
+        "Tache": "Vérifier le serrage des vis",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Vérifier et resserrer toutes les vis."
+      },
+      {
+        "Ordre": 9,
+        "Tache": "Nettoyer la machine",
+        "Type_Tache": "Nettoyage",
+        "Action_Critere": "Nettoyer l’intérieur et l’extérieur de la machine."
+      }
+    ],
+    "GAM-002": [
+      {
+        "Ordre": 1,
+        "Tache": "Contrôler le protège-aiguille (Eye Guard)",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 2,
+        "Tache": "Contrôler les fils électriques",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 3,
+        "Tache": "Contrôler la protection du moteur",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 4,
+        "Tache": "Contrôler le protège-courroie",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 5,
+        "Tache": "Graisser les points prévus",
+        "Type_Tache": "Graissage",
+        "Action_Critere": "Appliquer la graisse adaptée aux points de graissage prévus."
+      },
+      {
+        "Ordre": 6,
+        "Tache": "Vérifier le serrage des vis",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Vérifier et resserrer toutes les vis."
+      },
+      {
+        "Ordre": 7,
+        "Tache": "Nettoyer la machine",
+        "Type_Tache": "Nettoyage",
+        "Action_Critere": "Nettoyer l’intérieur et l’extérieur de la machine."
+      }
+    ],
+    "GAM-003": [
+      {
+        "Ordre": 1,
+        "Tache": "Contrôler le protège-aiguille (Eye Guard)",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 2,
+        "Tache": "Contrôler les fils électriques",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état"
+      },
+      {
+        "Ordre": 3,
+        "Tache": "Graisser les points prévus",
+        "Type_Tache": "Graissage",
+        "Action_Critere": "Appliquer la graisse adaptée aux points de graissage prévus."
+      },
+      {
+        "Ordre": 4,
+        "Tache": "Nettoyer la machine",
+        "Type_Tache": "Nettoyage",
+        "Action_Critere": "Nettoyer l’intérieur et l’extérieur de la machine."
+      },
+      {
+        "Ordre": 5,
+        "Tache": "Vérifier le serrage des vis",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Vérifier et resserrer toutes les vis."
+      }
+    ]
+  }
+}
