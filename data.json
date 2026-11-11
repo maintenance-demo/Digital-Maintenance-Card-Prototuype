@@ -69,6 +69,106 @@
       "Frequence_Mois": 3,
       "Statut": "Actif",
       "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240001",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240002",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240003",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240004",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240005",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240006",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240007",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240008",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240009",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
+    },
+    {
+      "Machine_ID": "SEW-ITM-SUP-NITM240010",
+      "Marque": "SUPREM",
+      "Modele": "INTELLIGENT TEMPLATE MACHINE",
+      "Site_Usine": "SG",
+      "Gamme_ID": "GAM-004",
+      "Frequence_Mois": 3,
+      "Statut": "Actif",
+      "Commentaire": null
     }
   ],
   "gammes": [
@@ -90,6 +190,13 @@
       "Gamme_ID": "GAM-003",
       "Nom_Gamme": "Gamme test – SEW-BTK-BRO-NBMA010007",
       "Description": "Gamme de maintenance préventive de test comportant 5 contrôles.",
+      "Version": "V1",
+      "Statut": "Actif"
+    },
+    {
+      "Gamme_ID": "GAM-004",
+      "Nom_Gamme": "Gamme de maintenance – SUPREM INTELLIGENT TEMPLATE MACHINE",
+      "Description": "Gamme de maintenance préventive comportant 7 contrôles.",
       "Version": "V1",
       "Statut": "Actif"
     }
@@ -225,6 +332,50 @@
         "Tache": "Vérifier le serrage des vis",
         "Type_Tache": "Vérification",
         "Action_Critere": "Vérifier et resserrer toutes les vis."
+      }
+    ],
+    "GAM-004": [
+      {
+        "Ordre": 1,
+        "Tache": "Contrôler le protège-aiguille (Eye Guard)",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état."
+      },
+      {
+        "Ordre": 2,
+        "Tache": "Contrôler les fils électriques",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier la présence, la fixation et le bon état."
+      },
+      {
+        "Ordre": 3,
+        "Tache": "Graisser les points prévus",
+        "Type_Tache": "Graissage",
+        "Action_Critere": "Appliquer la graisse adaptée aux points de graissage prévus."
+      },
+      {
+        "Ordre": 4,
+        "Tache": "Contrôler l’huile",
+        "Type_Tache": "Contrôle",
+        "Action_Critere": "Vérifier le niveau d’huile et compléter si nécessaire."
+      },
+      {
+        "Ordre": 5,
+        "Tache": "Vérifier le serrage des vis",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Vérifier et resserrer toutes les vis."
+      },
+      {
+        "Ordre": 6,
+        "Tache": "Vérification de l’aspirateur",
+        "Type_Tache": "Vérification",
+        "Action_Critere": "Allumer le laser et vérifier le fonctionnement de l’aspirateur."
+      },
+      {
+        "Ordre": 7,
+        "Tache": "Nettoyer la machine",
+        "Type_Tache": "Nettoyage",
+        "Action_Critere": "Nettoyer l’intérieur et l’extérieur de la machine."
       }
     ]
   }
